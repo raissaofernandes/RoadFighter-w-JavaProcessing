@@ -68,7 +68,7 @@ void draw() {
     if (random(1) > 0.1 && fase == 0) {
       carros.add(new CarroA(loadImage("car2teste.png"), random(100, 450 -30), posy));
     } 
-    if (random(1) > 0.3 && fase == 0) {
+    if (random(1) > 0.9 && fase == 0) {
       especiais.add(new CarroE(loadImage("car2teste2.png"), random(100, 450 -30), posy));
     }
   }
