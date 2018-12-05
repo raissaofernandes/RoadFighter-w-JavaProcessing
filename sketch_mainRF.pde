@@ -22,9 +22,9 @@ void setup() {
   lateral2 = loadImage("lateral2.png");
   hearts = loadImage("3hearts.png");
   menu = loadImage("mainmenu2.png");
- 
+
   carrinho = new CarroV(loadImage("car1teste.png"), 300, 500 ); //CARRO DO JOGADOR
-  
+
   //int y = 50; 
   //for(int i = 0; i < 7; i++){
   //  laterias.add(new Cenario(270, y, 12, 80));
@@ -43,7 +43,7 @@ void draw() {
     hearts = loadImage("3hearts.png");
   }
 
-   if (life == 2) {
+  if (life == 2) {
     hearts = loadImage("2hearts.png");
   }
 
@@ -129,8 +129,7 @@ void keyPressed() {
     carrinho.mover(carrinho.getX() - 10);
   } else if (keyCode == 39) {
     carrinho.mover(carrinho.getX() + 10);
-  } else if (keyCode == 32){
+  } else if (keyCode == 32) {
     cenario.acelerar();
   }
-  //keyCode 32
 }
