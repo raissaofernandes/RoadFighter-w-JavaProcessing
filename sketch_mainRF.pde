@@ -1,8 +1,6 @@
 Cenario cenario = new Cenario(); 
 CarroV carrinho; 
 ArrayList<Carro> carros = new ArrayList<Carro>();
-ArrayList<Cenario> laterais = new ArrayList<Cenario>();
-//ArrayList<Cenario> dPista = new ArrayList<Cenario>();
 PFont fonte; 
 float posy = -50; 
 int life = 3;
@@ -24,12 +22,6 @@ void setup() {
   menu = loadImage("mainmenu2.png");
 
   carrinho = new CarroV(loadImage("car1teste.png"), 300, 500 ); //CARRO DO JOGADOR
-
-  //int y = 50; 
-  //for(int i = 0; i < 7; i++){
-  //  laterias.add(new Cenario(270, y, 12, 80));
-  //  y+=50;
-  //}
 }
 
 void draw() {
@@ -37,6 +29,7 @@ void draw() {
 
   cenario.cena(); // adicionando os elementos do cenário 
   cenario.pista();
+  cenario.acelerar();
   cenario.des(lateral, lateral2, hearts);
 
   if (life == 3) {
@@ -66,10 +59,13 @@ void draw() {
   if (quadro > 60) {
     quadro = 0;
     if (random(1) > 0.1 && fase == 0) {
-      carros.add(new CarroA(loadImage("c2.png"), random(100, 450 -30), posy));
+      carros.add(new CarroA(loadImage("car2teste.png"), random(100, 450 -30), posy));
+    } if (random(1) > 0.3 && fase == 0) {
+      carros.add(new CarroE(loadImage("car2teste2.png"), random(100, 450 -30), posy));
     }
   }
-
+  
+ 
   for (int i = carros.size() - 1; i >= 0; i--) {
     Carro c = carros.get(i);
     if (c.colidiu(carrinho.x, carrinho.y)) {
@@ -80,9 +76,12 @@ void draw() {
       }
     }
     if (c.y >= 540 && c.y <= 543 && fase == 0) {
-      pontos += 100;
+      pontos += 100; // chamar o atributo super.pontuacao();
     }
-  }
+  } // CARRO AMARELO
+  
+   // CARRO ESPECIAL
+
 
   if (fase == 1) { // A FASE 1 REPRESENTA A TELA DE GAME OVER
     textSize(60);
@@ -104,11 +103,11 @@ void draw() {
     text("Road", 485, 80);
     text("Fighter", 510, 115);
 
-    text("Pontos:", 480, 200);
-    text(pontos, 480, 250);
+    text("Pontos", 500, 300);
+    text(pontos, 505, 350);
 
-    text("Vidas:", 480, 450); 
-    text(life, 500, 500);
+    text("Vidas", 510, 450); 
+    // text(life, 500, 500);
   }
 } //FIM DO DRAW
 
@@ -125,11 +124,10 @@ void mousePressed() { // TELA DE GAME OVER, SE CLICAR RECOMEÇA O JOGO
 } 
 
 void keyPressed() { 
-  if (keyCode == 37) {
+  if (keyCode == 37 ) {
     carrinho.mover(carrinho.getX() - 10);
   } else if (keyCode == 39) {
     carrinho.mover(carrinho.getX() + 10);
-  } else if (keyCode == 32) {
-    cenario.acelerar();
   }
+  //keyCode 32
 }

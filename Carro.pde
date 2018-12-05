@@ -2,6 +2,7 @@ public abstract class Carro implements iFace {
 
   PImage img; 
   float x, y; 
+  int pontos; 
 
   public boolean colidiu(float x1, float y1) {
     if (x >= x1 - 30 && x + img.width <= x1 + 70 && y >= y1 - 30 && y <= y1 + 50  ) {
@@ -10,9 +11,11 @@ public abstract class Carro implements iFace {
       return false;
     }
   }
+  
+   abstract void pontos();
 
   public void desenhar() {
-    img.resize(30, 0);
+    img.resize(40, 0);
     image(img, x, y);
   }
 

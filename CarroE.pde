@@ -1,13 +1,16 @@
-public class CarroA extends Carro {
+public class CarroE extends Carro {
 
-  public CarroA(PImage i, float x, float y) {
+  public CarroE(PImage i, float x, float y) {
     super.img = i; 
     super.x = x;
     super.y = y;
   }
   
-  public void pontos(){
-  }
+ public void pontos(){
+ //  super.pontos = 1000; 
+ }
+ 
+ 
   
   public void acelerar() {
     super.y += 5; // tava em 4 

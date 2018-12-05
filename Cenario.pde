@@ -16,22 +16,17 @@ public class Cenario {
 
     fill(255); //detalhes da pista
     rect(270, y-200, 12, 80); //esses y negativos são para não ficar um buraco no ngc
-    rect(270, y-300, 12, 80); //teste sem eles se n entendeu o motivo 
+   //teste sem eles se n entendeu o motivo 
     rect(270, y-400, 12, 80);
-    rect(270, y-500, 12, 80);
-    rect(270, y-600, 12, 80);
-    rect(270, y-100, 12, 80); 
+    rect(270, y-600, 12, 80); 
     rect(270, y, 12, 80); 
-    rect(270, y+100, 12, 80); 
     rect(270, y+200, 12, 80); 
-    rect(270, y+300, 12, 80); 
-    rect(270, y+400, 12, 80);
-    rect(270, y+500, 12, 80);
+    rect(270, y+400, 12, 80);;
     rect(270, y+600, 12, 80);
   }
 
   public void acelerar() {
-    y += 50;
+    y += 15;
    if (y > 600) { //tratar bordas
       y = 50;
    }
@@ -55,6 +50,6 @@ public class Cenario {
     image(lateral2, 450, 240, 15, 245);
     image(lateral2, 450, 480, 15, 245);
 
-    image(hearts, 500, 520, 68, 16);
+    image(hearts, 505, 470, 78, 20); 
   }
 }
