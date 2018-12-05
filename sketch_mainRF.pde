@@ -1,6 +1,7 @@
 Cenario cenario = new Cenario(); 
 CarroV carrinho; 
 ArrayList<Carro> carros = new ArrayList<Carro>();
+ArrayList<Carro> especiais = new ArrayList<Carro>();
 PFont fonte; 
 float posy = -50; 
 int life = 3;
@@ -52,7 +53,13 @@ void draw() {
     Carro car = carros.get(i);   
     car.desenhar();   
     car.acelerar();
-  }
+  } // carro amarelo
+  
+   for (int i = especiais.size() - 1; i >= 0; i--) {
+    Carro carE = especiais.get(i);   
+    carE.desenhar();   
+    carE.acelerar();
+  } // carro especial 
 
   carrinho.desenhar();
 
@@ -60,12 +67,13 @@ void draw() {
     quadro = 0;
     if (random(1) > 0.1 && fase == 0) {
       carros.add(new CarroA(loadImage("car2teste.png"), random(100, 450 -30), posy));
-    } if (random(1) > 0.3 && fase == 0) {
-      carros.add(new CarroE(loadImage("car2teste2.png"), random(100, 450 -30), posy));
+    } 
+    if (random(1) > 0.3 && fase == 0) {
+      especiais.add(new CarroE(loadImage("car2teste2.png"), random(100, 450 -30), posy));
     }
   }
-  
- 
+
+
   for (int i = carros.size() - 1; i >= 0; i--) {
     Carro c = carros.get(i);
     if (c.colidiu(carrinho.x, carrinho.y)) {
@@ -78,9 +86,19 @@ void draw() {
     if (c.y >= 540 && c.y <= 543 && fase == 0) {
       pontos += 100; // chamar o atributo super.pontuacao();
     }
-  } // CARRO AMARELO
+  } 
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////// CARRO AMARELO FIM
+
+  for (int i = especiais.size() - 1; i >= 0; i--) {
+    Carro cE = especiais.get(i);
+    if (cE.colidiu(carrinho.x, carrinho.y)) {
+      especiais.remove(i);
+      pontos += 1000;
+    }
+  }
+  /////////////////////////////////////////////////////////////////////////////////////////////////////// CARRO ESPECIAL FIM
   
-   // CARRO ESPECIAL
 
 
   if (fase == 1) { // A FASE 1 REPRESENTA A TELA DE GAME OVER
