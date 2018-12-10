@@ -15,8 +15,8 @@ public class CarroV {
     return this.x;
   }
 
-  public void mover(float novoX) {
-   if (!(novoX <= 100 || novoX >= 435 - LARGURA/2)) {
+  public void mover(float novoX) { //Esse método foi utilizado para não permitir que o carro vermelho saia do limite da pista
+    if (!(novoX <= 100 || novoX >= 435 - LARGURA/2)) {
       this.x = novoX;
     }
   }

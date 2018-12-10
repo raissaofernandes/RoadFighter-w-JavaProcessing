@@ -12,7 +12,7 @@ public abstract class Carro implements iFace {
     }
   }
   
-   abstract void pontos();
+  abstract void pontos();
 
   public void desenhar() {
     img.resize(40, 0);

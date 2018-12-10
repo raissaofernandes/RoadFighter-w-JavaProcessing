@@ -5,13 +5,13 @@ public class CarroE extends Carro {
     super.x = x;
     super.y = y;
   }
-  
- public void pontos(){
- //  super.pontos = 1000; 
- }
- 
- 
-  
+
+  public void pontos() {
+    super.pontos += 1000;
+  }
+
+
+
   public void acelerar() {
     super.y += 5; // tava em 4 
     tratarBordas();
