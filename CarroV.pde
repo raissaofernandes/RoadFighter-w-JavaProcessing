@@ -5,8 +5,8 @@ public class CarroV {
   public float y;
   final int LARGURA = 30; 
 
-  public CarroV(PImage img, float x, float y) {
-    this.x = x;
+  public CarroV(PImage img, float x, float y) {  //Construtor do carro do jogador, especificando o x, y e a imagem que será atribuída na classe principal 
+    this.x = x; //Usamos this. porque CarroV não extende a classe Carro, diferente das classes CarroA e CarroE
     this.y = y;
     this.img = img;
   }

@@ -89,7 +89,7 @@ void draw() {
       pontos += 100; //Caso o carro vermelho ultrapasse o amarelo, é atribuido mais 100 pontos na pontuação do jogador
     }
   } 
-  
+
   for (int i = especiais.size() - 1; i >= 0; i--) { 
     Carro cE = especiais.get(i);
     if (cE.colidiu(carrinho.x, carrinho.y)) { //Teste de colisão entre o carrinho vermelho e o carro especial 
@@ -130,7 +130,7 @@ void mousePressed() {
     fase = 0; 
     life = 3;
     carros.clear(); //Limpando o Array dos carros 
-    pontos = 0; //Zerando a pontuação 
+    pontos = 0; //Zerando a pontuação
   }
   if ( fase == -1 ) { //Caso esteja na tela de menu e o jogador clicar em algum lugar na tela, o jogo começa 
     fase = 0;
@@ -142,5 +142,5 @@ void keyPressed() {
     carrinho.mover(carrinho.getX() - 10);
   } else if (keyCode == 39) {
     carrinho.mover(carrinho.getX() + 10);
-  } //Ambos são os controles do carrinho vermelho, que é o carro do jogador 
+  } //Ambos são os controles do carrinho vermelho, que é o carro do jogador
 }
